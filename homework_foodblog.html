@@ -87,6 +87,43 @@
             height: 40px;
         }
 
+        .box {
+            z-index: 2;
+            position: fixed;
+            opacity: 0.9;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: auto;
+            width: 15em;
+            background: #000000;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            -moz-box-shadow: 0px 0px 5px #444444;
+            -webkit-box-shadow: 0px 0px 5px #444444;
+            box-shadow: 0px 0px 5px #444444;
+        }
+
+        .box h1 {
+            margin-bottom: 1em;
+        }
+
+        .box span {
+            font-weight: bold;
+        }
+
+        .box button {
+            margin-top: 3em;
+        }
+
+        .close {
+            font-weight: bold;
+            float: right;
+            cursor: pointer;
+        }
+
         footer {
             position: absolute;
             bottom: 0;
@@ -117,32 +154,32 @@
 
             <section id="blogposts">
 
-                <div class="post">
-                    <img @click="showProfile" v-bind:src="profileImage">
+                <div class="post post1">
+                    <img @click="showProfile" v-bind:src="post1.profileImage">
                     <span class="author">{{ post1.author }}</span> —
                     <span class="date">{{ post1.date }}</span>
                     <span class="reply">{{ reply }}</span>
                     <p>{{ post1.review }}</p>
                 </div>
 
-                <div class="post">
-                    <img @click="showProfile" v-bind:src="profileImage">
+                <div class="post post2">
+                    <img @click="showProfile" v-bind:src="post2.profileImage">
                     <span class="author">{{ post2.author }}</span> —
                     <span class="date">{{ post2.date }}</span>
                     <span class="reply">{{ reply }}</span>
                     <p>{{ post2.review }}</p>
                 </div>
 
-                <div class="post">
-                    <img @click="showProfile" v-bind:src="profileImage">
+                <div class="post post3">
+                    <img @click="showProfile" v-bind:src="post3.profileImage">
                     <span class="author">{{ post3.author }}</span> —
                     <span class="date">{{ post3.date }}</span>
                     <span class="reply">{{ reply }}</span>
                     <p>{{ post3.review }}</p>
                 </div>
 
-                <div class="post">
-                    <img @click="showProfile" v-bind:src="profileImage">
+                <div class="post post4">
+                    <img @click="showProfile" v-bind:src="post4.profileImage">
                     <span class="author">{{ post4.author }}</span> —
                     <span class="date">{{ post4.date }}</span>
                     <span class="reply">{{ reply }}</span>
@@ -150,6 +187,14 @@
                 </div>
 
             </section>
+
+            <div class="box">
+                <div class="close">x</div>
+                <h1>{{ clickedAuthor }}</h1>
+                <p><span>{{ foodieTitle }}</span>{{ clickedFoodieLevel }}</p>
+                <p><span>{{ bioTitle }}</span><br>{{ clickedBio }}</p>
+                <button>close</button>
+            </div>
 
         </main>
 
@@ -171,31 +216,50 @@
             el: '#container',
             data: {
                 reply: "REPLY",
-                profileImage: "profile.png",
+                foodieTitle: "Foodie Level: ",
+                bioTitle: "Bio: ",
                 post1: {
+                    profileImage: "profile.png",
                     author: "Brianna",
+                    foodieLevel: "Novice",
+                    bio: "Food enthusiast. Love to cook and experiment. Into only organic, fat free, sugar free stuffs!",
                     date: "February 18, 2021 @ 3:30 pm",
                     review: "Was amazing! My Walmart didn’t have coriander in stock and didn’t have ground cumin. I used serrano instead of jalapeño. It was just like my favorite tortilla soup from BJs. I am sending this recipe to my family. I want everyone to try it!"
                 },
                 post2: {
+                    profileImage: "profile.png",
                     author: "LINH",
+                    foodieLevel: "Newcomer",
+                    bio: "Love food! Grew up with meat and potatoes. Recently venture outside my comfort zone. Loving everything I have been eating so far. Thai is my favorite at this time.",
                     date: "February 15, 2021 @ 9:46 am",
                     review: "I just made this soup today and it’s so tasty! didn’t have corn at home but still turned out very good. It’s a winner! I made beef chili for my parents; but since my dad has gout he can’t eat beef; this white chicken chili is perfect for him. Thank you Lisa!"
                 },
                 post3: {
+                    profileImage: "profile.png",
                     author: "CATHERINE LEONARDO",
+                    foodieLevel: "Mentor",
+                    bio: "I have to say I never was the adventurous type until 2 years ago. My boyfriend, who is of Japanese background, exposed me to other cultural food and I have never look back since!",
                     date: "February 13, 2021 @ 12:58 pm",
                     review: "I LOVE this White Chicken Chili! You are right, it is satiating meal—delicious with toasted bread. Refreshingly different taste than any chicken chili I’ve made in the past. I made it exactly as written and added some chopped zucchini, carrots, and celery. Instead of shredding the chicken, I chopped it into small pieces. It freezes very well. Will be an all-time favorite, for sure."
                 },
                 post4: {
+                    profileImage: "profile.png",
                     author: "KALI",
+                    foodieLevel: "Novice",
+                    bio: "Food is my passion. So is cooking. I love to experiment and try new things. I have to admit I'm a food whore! Invite me over for dinner and I'll be there!",
                     date: "February 13, 2021 @ 11:31 am",
                     review: "This recipe is dynamite! My partner usually won’t eat beans but he finished the whole pot (darn was hoping to have some for leftovers haha). This is crowd-pleaser that I am going to add to my regular recipe rotation. Thanks so much, Lisa!"
-                }
+                },
+                clickedAuthor: "",
+                clickedFoodieLevel: "",
+                clickedBio: ""
             },
             methods: {
-                showProfile: function() {
-                    console.log("click function");
+                showProfile: function(event) {
+                    var c = event.target.parentNode.className.split(' ')[1];
+                    this.clickedAuthor = this.$data[c].author;
+                    this.clickedFoodieLevel = this.$data[c].foodieLevel;
+                    this.clickedBio = this.$data[c].bio;
                 }
             }
         });
