@@ -24,6 +24,25 @@ header span {
     font-family: 'Sacramento', cursive;
 }
 
+.navbar {
+    z-index: 100;
+}
+
+.nav-item {
+    text-align: right;
+}
+
+nav ul li {
+    font-weight: 500;
+    font-size: 14px;
+    background-color: rgba(231, 229, 229, 0.5);
+}
+
+nav ul li a {
+    color: rgb(216, 150, 7);
+    padding: 10px;
+}
+
 main {
     position: relative;
 }

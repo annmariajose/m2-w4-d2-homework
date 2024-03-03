@@ -1,5 +1,41 @@
-Vue.component('blogtitle',{
-    template: '<header><span>Food Blog</span></header>'
+Vue.component('foodblogheader',{
+    template: `
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+        <span>Food Blog</span>
+
+            <!-- Hamburger Menu -->
+            <button id="nav-collapsed-button" class = "navbar-toggler border-0" type = "button" data-toggle = "collapse" 
+                data-target = "#navbarContent" 
+                aria-controls = "navbarContent" aria-expanded = "false" 
+                aria-label = "Toggle navigation">
+                
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse hamburgerMenu" id="navbarContent">
+                <ul class="navbar-nav w-100 mt-1 mt-lg-n4 mx-lg-3 d-flex justify-content-end">
+                    <li class="nav-item p-3 px-lg-2">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="nav-item p-3 px-lg-2">
+                        <a href="#">Recipes</a>
+                    </li>
+                    <li class="nav-item p-3 px-lg-2">
+                        <a href="#">Lifestyles</a>
+                    </li>
+                    <li class="nav-item p-3 px-lg-2">
+                        <a href="#">Videos</a>
+                    </li>
+                    <li class="nav-item dropdown p-3 px-lg-2 has-children">
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="modalContainer" class="collapse"></div>
+        </nav>
+    </header>
+    `
 });
 Vue.component('commentsheading',{
     template: '<h2>Comments</h2>'
