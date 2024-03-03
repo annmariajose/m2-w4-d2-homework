@@ -13,51 +13,47 @@
 
 </head>
 <body>
-    <div id="container" class="container">
+    <div id="container">
         <blogtitle></blogtitle>
 
-        <main>
-
-            <aside id="photos">
+        <main class="row">
+            <aside id="photos" class="col-md-3">
                 <img src="images/chili.jpg" alt="White Chicken Chili" width="180">
             </aside>
-            <commentsheading></commentsheading>
+            <div class="col-md-9 pt-4 pt-md-5 ml-md-n4">
+                <commentsheading class="ml-3 ml-md-0"></commentsheading>
 
-            <section id="blogposts">
-
-                <div class="post post1">
-                    <img @click="showProfile" v-bind:src="post1.profileImage">
-                    <span class="author">{{ post1.author }}</span> —
-                    <span class="date">{{ post1.date }}</span>
-                    <span class="reply">{{ reply }}</span>
-                    <p>{{ post1.review }}</p>
-                </div>
-
-                <div class="post post2">
-                    <img @click="showProfile" v-bind:src="post2.profileImage">
-                    <span class="author">{{ post2.author }}</span> —
-                    <span class="date">{{ post2.date }}</span>
-                    <span class="reply">{{ reply }}</span>
-                    <p>{{ post2.review }}</p>
-                </div>
-
-                <div class="post post3">
-                    <img @click="showProfile" v-bind:src="post3.profileImage">
-                    <span class="author">{{ post3.author }}</span> —
-                    <span class="date">{{ post3.date }}</span>
-                    <span class="reply">{{ reply }}</span>
-                    <p>{{ post3.review }}</p>
-                </div>
-
-                <div class="post post4">
-                    <img @click="showProfile" v-bind:src="post4.profileImage">
-                    <span class="author">{{ post4.author }}</span> —
-                    <span class="date">{{ post4.date }}</span>
-                    <span class="reply">{{ reply }}</span>
-                    <p>{{ post4.review }}</p>
-                </div>
-
-            </section>
+                <section id="blogposts">
+                    <div class="post post1 m-4 mr-md-5">
+                        <img @click="showProfile" v-bind:src="post1.profileImage">
+                        <span class="author">{{ post1.author }}</span> —
+                        <span class="date">{{ post1.date }}</span>
+                        <span class="reply">{{ reply }}</span>
+                        <p class="pt-4">{{ post1.review }}</p>
+                    </div>
+                    <div class="post post2 m-4 mr-md-5">
+                        <img @click="showProfile" v-bind:src="post2.profileImage">
+                        <span class="author">{{ post2.author }}</span> —
+                        <span class="date">{{ post2.date }}</span>
+                        <span class="reply">{{ reply }}</span>
+                        <p class="pt-4">{{ post2.review }}</p>
+                    </div>
+                    <div class="post post3 m-4 mr-md-5">
+                        <img @click="showProfile" v-bind:src="post3.profileImage">
+                        <span class="author">{{ post3.author }}</span> —
+                        <span class="date">{{ post3.date }}</span>
+                        <span class="reply">{{ reply }}</span>
+                        <p class="pt-4">{{ post3.review }}</p>
+                    </div>
+                    <div class="post post4 m-4 mr-md-5">
+                        <img @click="showProfile" v-bind:src="post4.profileImage">
+                        <span class="author">{{ post4.author }}</span> —
+                        <span class="date">{{ post4.date }}</span>
+                        <span class="reply">{{ reply }}</span>
+                        <p class="pt-4">{{ post4.review }}</p>
+                    </div>
+                </section>
+            </div>
 
             <div class="box">
                 <div @click="closeProfile" class="close">x</div>
