@@ -8,6 +8,7 @@ Vue.component('commentsheading',{
 var vm1 = new Vue({
     el: '#container',
     data: {
+        chiliImage: "images/chili.jpg",
         reply: "REPLY",
         foodieTitle: "Foodie Level: ",
         bioTitle: "Bio: ",
