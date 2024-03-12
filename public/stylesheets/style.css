@@ -100,7 +100,7 @@ main .post img {
     margin-bottom: 1em;
 }
 
-.box span {
+.box .title {
     font-weight: bold;
 }
 

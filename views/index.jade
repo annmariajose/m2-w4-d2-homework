@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  #container
+    foodblogheader
+
+    main.row
+      aside#photos.col-md-3
+        img(v-bind:src='chiliImage' alt='White Chicken Chili')
+      .col-md-9.pt-4.pt-md-5.ml-md-n4
+        commentsheading.ml-3.ml-md-0
+        section#blogposts
+          .post.post1.m-4.mr-md-5
+            img(v-bind:src='post1.profileImage' @click='showProfile')
+            span.author  {{post1.author}} — 
+            span.date {{post1.date}} 
+            span.reply {{reply}}
+            p.pt-4 {{post1.review}}
+          .post.post2.m-4.mr-md-5
+            img(v-bind:src='post2.profileImage' @click='showProfile')
+            span.author  {{post2.author}} — 
+            span.date {{post2.date}} 
+            span.reply {{reply}}
+            p.pt-4 {{post2.review}}
+          .post.post3.m-4.mr-md-5
+            img(v-bind:src='post3.profileImage' @click='showProfile')
+            span.author  {{post3.author}} — 
+            span.date {{post3.date}} 
+            span.reply {{reply}}
+            p.pt-4 {{post3.review}}
+          .post.post4.m-4.mr-md-5
+            img(v-bind:src='post4.profileImage' @click='showProfile')
+            span.author  {{post4.author}} — 
+            span.date {{post4.date}} 
+            span.reply {{reply}}
+            p.pt-4 {{post4.review}}
+      .box
+        .close(@click="closeProfile")
+          p x
+        h1 {{clickedAuthor}}
+        p
+          span.title {{bioTitle}}
+          br
+          span {{clickedBio}}
+        button(@click="closeProfile") close
+
+    footer &copy; Copyright FOOD BLOG
